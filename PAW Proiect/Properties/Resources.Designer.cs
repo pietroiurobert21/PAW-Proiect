@@ -83,6 +83,36 @@ namespace PAW_Proiect.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Iconka_Cat_Commerce_Cart_128 {
+            get {
+                object obj = ResourceManager.GetObject("Iconka-Cat-Commerce-Cart.128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Iconka_Cat_Commerce_Client_128 {
+            get {
+                object obj = ResourceManager.GetObject("Iconka-Cat-Commerce-Client.128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Iconka_Cat_Commerce_Client_72 {
+            get {
+                object obj = ResourceManager.GetObject("Iconka-Cat-Commerce-Client.72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icons8_Windows_8_Users_Administrator_2_64 {
             get {
                 object obj = ResourceManager.GetObject("Icons8-Windows-8-Users-Administrator-2.64", resourceCulture);

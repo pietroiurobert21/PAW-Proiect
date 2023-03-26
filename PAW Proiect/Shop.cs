@@ -14,10 +14,12 @@ namespace PAW_Proiect
 {
     public partial class Shop : Form
     {
+        Dictionary<Produs, int> achizitieNoua = new Dictionary<Produs, int>();
         List<Produs> listaProduse = new List<Produs>();
         //internal vs public class (to search)
-        public Shop()
+        public Shop(Dictionary<Produs, int> achizitie)
         {
+            this.achizitieNoua = achizitie;
             InitializeComponent();
             Produs produs1 = new Produs();
             
@@ -26,19 +28,23 @@ namespace PAW_Proiect
             listaProduse = (List<Produs>)formatter.Deserialize(fisier);
             foreach(Produs produs in listaProduse)
             {
-                ltProduse.Items.Add(produs);
+                ltProdus.Items.Add(produs);
             }
             fisier.Close();  
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Produs selectedProduct = new Produs();
+            selectedProduct = listaProduse.ElementAt(ltProdus.SelectedIndex);
+            //selectedProduct = ltProdus.SelectedItem as Produs;
+            DetaliiProdusClient form = new DetaliiProdusClient(selectedProduct, achizitieNoua);
+            form.ShowDialog();
         }
 
         private void Shop_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 } 

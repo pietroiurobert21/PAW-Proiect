@@ -117,12 +117,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(243, 41);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(206, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(284, 29);
+            this.label1.Size = new System.Drawing.Size(206, 39);
             this.label1.TabIndex = 14;
-            this.label1.Text = "[Your Shop Name HERE]";
+            this.label1.Text = "Autentificare";
             // 
             // listBox1
             // 
@@ -147,9 +147,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PAW_Proiect.Properties.Resources.Graphicloads_Flat_Finance_Person_64;
-            this.pictureBox1.Location = new System.Drawing.Point(117, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(71, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(69, 64);
+            this.pictureBox1.Size = new System.Drawing.Size(67, 68);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 

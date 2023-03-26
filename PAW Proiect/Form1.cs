@@ -96,7 +96,7 @@ namespace PAW_Proiect
             Produs selectedProduct = new Produs();
             selectedProduct = listaProduse.ElementAt( ltProdus.SelectedIndex );
             //selectedProduct = ltProdus.SelectedItem as Produs;
-            DetaliiProdus form = new DetaliiProdus(selectedProduct);
+            DetaliiProdusAdmin form = new DetaliiProdusAdmin(selectedProduct);
             form.ShowDialog();
         }
     }

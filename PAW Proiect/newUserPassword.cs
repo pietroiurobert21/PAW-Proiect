@@ -28,22 +28,30 @@ namespace PAW_Proiect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.client.Password = tbParola.Text;
-            lista = new List<Client>();
-            FileStream fisier = new FileStream("clienti.dat", FileMode.Open, FileAccess.Read);
-            BinaryFormatter formatter = new BinaryFormatter();
-            lista = (List<Client>)formatter.Deserialize(fisier);
-            fisier.Close();
+            if (tbParola.Text == "")
+            {
+                tbParola.Focus();
+                errorProvider1.SetError(tbParola, "Introduceti o parola!");
+            }
+            else
+            {
+                this.client.Password = tbParola.Text;
+                lista = new List<Client>();
+                FileStream fisier = new FileStream("clienti.dat", FileMode.Open, FileAccess.Read);
+                BinaryFormatter formatter = new BinaryFormatter();
+                lista = (List<Client>)formatter.Deserialize(fisier);
+                fisier.Close();
 
-            fisier = new FileStream("clienti.dat", FileMode.Create, FileAccess.Write);
-            BinaryFormatter bf = new BinaryFormatter();
+                fisier = new FileStream("clienti.dat", FileMode.Create, FileAccess.Write);
+                BinaryFormatter bf = new BinaryFormatter();
 
-            lista.Add(client);
-            bf.Serialize(fisier, lista);
-            fisier.Close();
+                lista.Add(client);
+                bf.Serialize(fisier, lista);
+                fisier.Close();
 
-            this.Close();
-            obj.Close();
+                this.Close();
+                obj.Close();
+            }
         }
 
         private void newUserPassword_Load(object sender, EventArgs e)
@@ -51,4 +59,4 @@ namespace PAW_Proiect
 
         }
     }
-}
+} 

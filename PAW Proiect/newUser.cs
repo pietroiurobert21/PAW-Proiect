@@ -29,11 +29,25 @@ namespace PAW_Proiect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Client client = new Client();
-            client.Nume = tbNume.Text;
-            client.Email = tbEmail.Text;
-            newUserPassword user = new newUserPassword(this, client, lista);
-            user.ShowDialog(this);
+
+            if (tbNume.Text == "")
+            {
+                tbNume.Focus();
+                errorProvider1.SetError(tbNume, "Introduceti numele!");
+            }
+            else if (tbEmail.Text == "")
+            {
+                tbEmail.Focus();
+                errorProvider1.SetError(tbEmail, "Introduceti email-ul!");
+            }
+            else
+            {
+                Client client = new Client();
+                client.Nume = tbNume.Text;
+                client.Email = tbEmail.Text;
+                newUserPassword user = new newUserPassword(this, client, lista);
+                user.ShowDialog(this);
+            }
         }
 
         private void newUser_Load(object sender, EventArgs e)
