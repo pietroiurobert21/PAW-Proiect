@@ -63,6 +63,16 @@ namespace PAW_Proiect.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Custom_Icon_Design_Flatastic_10_Trafficlight_red_48 {
+            get {
+                object obj = ResourceManager.GetObject("Custom-Icon-Design-Flatastic-10-Trafficlight-red.48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Graphicloads_Flat_Finance_Person_256 {
             get {
                 object obj = ResourceManager.GetObject("Graphicloads-Flat-Finance-Person.256", resourceCulture);

@@ -71,6 +71,13 @@
     <Compile Include="DetaliiProdusClient.Designer.cs">
       <DependentUpon>DetaliiProdusClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDGenerator.cs" />
+    <Compile Include="IstoricTranzactii.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IstoricTranzactii.Designer.cs">
+      <DependentUpon>IstoricTranzactii.cs</DependentUpon>
+    </Compile>
     <Compile Include="MENU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +111,12 @@
     <Compile Include="Shop.Designer.cs">
       <DependentUpon>Shop.cs</DependentUpon>
     </Compile>
+    <Compile Include="shoppingCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="shoppingCart.Designer.cs">
+      <DependentUpon>shoppingCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tranzactie.cs" />
     <Compile Include="UserType.cs">
       <SubType>Form</SubType>
@@ -126,6 +139,9 @@
     <EmbeddedResource Include="administrator.resx">
       <DependentUpon>administrator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IstoricTranzactii.resx">
+      <DependentUpon>IstoricTranzactii.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MENU.resx">
       <DependentUpon>MENU.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +163,9 @@
     </Compile>
     <EmbeddedResource Include="Shop.resx">
       <DependentUpon>Shop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="shoppingCart.resx">
+      <DependentUpon>shoppingCart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserType.resx">
       <DependentUpon>UserType.cs</DependentUpon>
@@ -181,6 +200,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Iconka-Cat-Commerce-Cart.128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Custom-Icon-Design-Flatastic-10-Trafficlight-red.48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

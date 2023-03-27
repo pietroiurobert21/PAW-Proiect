@@ -41,5 +41,11 @@ namespace PAW_Proiect
             //    sumaProduse += item.Value;
             //MessageBox.Show(sumaProduse.ToString());
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            shoppingCart form = new shoppingCart(achizitie);
+            form.ShowDialog();
+        }
     }
 }

@@ -49,7 +49,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 37);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Sign In";
+            this.button1.Text = "Sign Up";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -120,7 +120,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(206, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 39);
+            this.label1.Size = new System.Drawing.Size(198, 38);
             this.label1.TabIndex = 14;
             this.label1.Text = "Autentificare";
             // 
