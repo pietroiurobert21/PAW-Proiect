@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PAW_Proiect
 {
     [Serializable]
-    internal class Tranzactie : ICloneable, IComparable, IDGenerator
+    public class Tranzactie : ICloneable, IComparable, IDGenerator
     {
         private string idTranzactie;
         private double valoare;
@@ -61,9 +61,9 @@ namespace PAW_Proiect
             else return 0;
         }
 
-        public string generatePassword(int length)
+        public string generateID(int length)
         {
-            string password = "id";
+            string ID = "id";
             char x = 'A', y = 'a';
             List<char> upper = new List<char>();
             List<char> lower = new List<char>();
@@ -80,13 +80,11 @@ namespace PAW_Proiect
                 int randomIndex = rand.Next(upper.Count);
                 int use_digits = rand.Next(2); //0 - use digit, 1 - use letter
                 if (use_digits == 0)
-                    password += rand.Next(10);
+                    ID += rand.Next(10);
                 else
-                    password += upper[randomIndex];
+                    ID += upper[randomIndex];
             }
-            return password;
+            return ID;
         }
-
-
     }
 }

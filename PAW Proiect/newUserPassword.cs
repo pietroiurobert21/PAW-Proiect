@@ -38,9 +38,14 @@ namespace PAW_Proiect
                 this.client.Password = tbParola.Text;
                 lista = new List<Client>();
                 FileStream fisier = new FileStream("clienti.dat", FileMode.Open, FileAccess.Read);
-                BinaryFormatter formatter = new BinaryFormatter();
-                lista = (List<Client>)formatter.Deserialize(fisier);
+                if (fisier != null && fisier.Length > 0)
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    lista = (List<Client>)formatter.Deserialize(fisier);
+                }
                 fisier.Close();
+
+
 
                 fisier = new FileStream("clienti.dat", FileMode.Create, FileAccess.Write);
                 BinaryFormatter bf = new BinaryFormatter();

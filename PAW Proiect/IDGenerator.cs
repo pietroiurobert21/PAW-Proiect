@@ -8,6 +8,6 @@ namespace PAW_Proiect
 {
     internal interface IDGenerator
     {
-         string generatePassword(int length);
+         string generateID(int length);
     }
 }

@@ -14,9 +14,12 @@ namespace PAW_Proiect
     {
         Dictionary<Produs, int> achizitie = new Dictionary<Produs, int>();
         int sumaProduse = 0;
-        public customer()
+        string username;
+        public customer(string username)
         {
             InitializeComponent();
+            this.username = username;
+            label2.Text =  "Bun venit, " + username;
             //if (sumaProduse == 0)
             //   label3.Text = "Nu aveti produse in cos!";
             //else

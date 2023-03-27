@@ -59,6 +59,7 @@
             this.tbParola.Name = "tbParola";
             this.tbParola.Size = new System.Drawing.Size(258, 30);
             this.tbParola.TabIndex = 12;
+            this.tbParola.TextChanged += new System.EventHandler(this.tbParola_TextChanged);
             // 
             // tbNume
             // 
@@ -72,7 +73,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(57, 91);
+            this.label3.Location = new System.Drawing.Point(22, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 25);
             this.label3.TabIndex = 10;
@@ -82,11 +83,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(57, 39);
+            this.label2.Location = new System.Drawing.Point(22, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 25);
+            this.label2.Size = new System.Drawing.Size(102, 25);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Nume";
+            this.label2.Text = "Username";
             // 
             // groupBox1
             // 
@@ -129,10 +130,11 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 29;
-            this.listBox1.Location = new System.Drawing.Point(706, 28);
+            this.listBox1.Location = new System.Drawing.Point(673, 27);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(384, 265);
+            this.listBox1.Size = new System.Drawing.Size(559, 265);
             this.listBox1.TabIndex = 15;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // bRefresh
             // 
@@ -157,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1169, 450);
+            this.ClientSize = new System.Drawing.Size(1358, 450);
             this.Controls.Add(this.bRefresh);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);

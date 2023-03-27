@@ -40,17 +40,28 @@ namespace PAW_Proiect
                 tbEmail.Focus();
                 errorProvider1.SetError(tbEmail, "Introduceti email-ul!");
             }
+            else if (tbTelefon.Text == "")
+            {
+                tbTelefon.Focus();
+                errorProvider1.SetError(tbTelefon, "Introduceti numarul de telefon!");
+            }
             else
             {
                 Client client = new Client();
                 client.Nume = tbNume.Text;
                 client.Email = tbEmail.Text;
+                client.Telefon = tbTelefon.Text;
                 newUserPassword user = new newUserPassword(this, client, lista);
                 user.ShowDialog(this);
             }
         }
 
         private void newUser_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
         {
 
         }

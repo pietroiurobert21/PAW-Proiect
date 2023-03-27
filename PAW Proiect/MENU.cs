@@ -13,7 +13,7 @@ namespace PAW_Proiect
     public partial class MENU : Form
     {
         administrator formA = new administrator();
-        customer formC = new customer();
+        customer formC = new customer("unknown");
 
         UserType userTypeA = new UserType();
         public MENU()

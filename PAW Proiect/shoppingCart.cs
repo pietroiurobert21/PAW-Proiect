@@ -25,7 +25,7 @@ namespace PAW_Proiect
             InitializeComponent();
             this.achizitieNoua = achizitie;
            
-            tranzactie += tr.generatePassword(5);
+            tranzactie += tr.generateID(5);
             tranzactie += " ";
             foreach (var Produs in achizitieNoua)
             {
@@ -45,29 +45,30 @@ namespace PAW_Proiect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // textBox1.Text = "0";
-            label2.Text = "Produsele au fost achizitionate cu succes!";
-            tr.IdTranzactie = tranzactie;
-            tr.Valoare = total;
-            List<Tranzactie> tranzactieList = new List<Tranzactie>();
+            if (textBox1.Text != "0") { 
+                label2.Text = "Produsele au fost achizitionate cu succes!";
+                tr.IdTranzactie = tranzactie;
+                tr.Valoare = total;
+                List<Tranzactie> tranzactieList = new List<Tranzactie>();
 
-            FileStream fisier = new FileStream("tranzactii.dat", FileMode.Open, FileAccess.Read);
-            if (fisier != null && fisier.Length > 0)
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                tranzactieList = (List<Tranzactie>)formatter.Deserialize(fisier);
+                FileStream fisier = new FileStream("tranzactii.dat", FileMode.Open, FileAccess.Read);
+                if (fisier != null && fisier.Length > 0)
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    tranzactieList = (List<Tranzactie>)formatter.Deserialize(fisier);
+                }
                 fisier.Close();
+
+                tranzactieList.Add(tr);
+
+                fisier = new FileStream("tranzactii.dat", FileMode.Create, FileAccess.Write);
+                BinaryFormatter bf = new BinaryFormatter();
+                tranzactieList.Add(tr);
+                bf.Serialize(fisier, tranzactieList);
+                fisier.Close();
+                listBox1.Items.Clear();
+                this.achizitieNoua.Clear();
             }
-            fisier.Close();
-
-            tranzactieList.Add(tr);
-
-            fisier = new FileStream("tranzactii.dat", FileMode.Create, FileAccess.Write);
-            BinaryFormatter bf = new BinaryFormatter();
-            tranzactieList.Add(tr);
-            bf.Serialize(fisier, tranzactieList);
-            fisier.Close();
-
         }
 
         private void shoppingCart_Load(object sender, EventArgs e)

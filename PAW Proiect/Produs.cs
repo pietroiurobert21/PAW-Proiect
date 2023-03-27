@@ -49,9 +49,20 @@ namespace PAW_Proiect
             return base.GetHashCode();
         }
 
-        public string generatePassword(int length)
+        public static Produs operator ++(Produs obj) // post incrementare
         {
-            string password = "id";
+            obj.pret++;
+            return obj;
+        }
+        public static Produs operator --(Produs obj) // post decrementare
+        {
+            obj.pret--;
+            return obj;
+        }
+
+        public string generateID(int length)
+        {
+            string ID = "id";
             char x = 'A', y = 'a';
             List<char> upper = new List<char>();
             List<char> lower = new List<char>();
@@ -68,11 +79,11 @@ namespace PAW_Proiect
                 int randomIndex = rand.Next(upper.Count);
                 int use_digits = rand.Next(2); //0 - use digit, 1 - use letter
                 if (use_digits == 0)
-                    password += rand.Next(10);
+                    ID += rand.Next(10);
                 else
-                    password += upper[randomIndex];
+                    ID += upper[randomIndex];
             }
-            return password;
+            return ID;
         }
     }
 }
