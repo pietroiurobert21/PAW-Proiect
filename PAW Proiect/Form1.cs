@@ -102,10 +102,14 @@ namespace PAW_Proiect
         private void ltProdus_SelectedIndexChanged(object sender, EventArgs e)
         {
             Produs selectedProduct = new Produs();
-            selectedProduct = listaProduse.ElementAt( ltProdus.SelectedIndex );
-            //selectedProduct = ltProdus.SelectedItem as Produs;
-            DetaliiProdusAdmin form = new DetaliiProdusAdmin(selectedProduct, listaProduse, ltProdus.SelectedIndex);
-            form.ShowDialog();
+            if (ltProdus.SelectedIndex >= 0 && ltProdus.SelectedIndex < ltProdus.Items.Count)
+            {
+                selectedProduct = listaProduse.ElementAt(ltProdus.SelectedIndex);
+                //selectedProduct = ltProdus.SelectedItem as Produs;
+                DetaliiProdusAdmin form = new DetaliiProdusAdmin(selectedProduct, listaProduse, ltProdus.SelectedIndex);
+                form.ShowDialog();
+                button1_Click(sender, e);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -36,25 +36,11 @@ namespace PAW_Proiect
             fisier.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             newUser newuser = new newUser();
             newuser.ShowDialog();
-        }
-
-        private void tbNume_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UserType_Load(object sender, EventArgs e)
-        {
-
+            bRefresh_Click(sender, e);
         }
 
         private void bRefresh_Click(object sender, EventArgs e)
@@ -93,12 +79,7 @@ namespace PAW_Proiect
             else MessageBox.Show("Nu ati introdus bine numele sau parola!");
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbParola_TextChanged(object sender, EventArgs e)
+        private void UserType_Load(object sender, EventArgs e)
         {
 
         }

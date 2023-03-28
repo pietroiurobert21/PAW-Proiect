@@ -16,6 +16,10 @@ namespace PAW_Proiect
         {
 
         }
+
+        public delegate int Operation(int cantitate);
+        public double SumaPlatita(int cantitate){ return cantitate * pret; }
+
         public Produs(string denumireProdus, double pret)
         {
             this.denumireProdus = denumireProdus;

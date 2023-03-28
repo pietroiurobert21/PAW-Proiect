@@ -28,7 +28,7 @@ namespace PAW_Proiect
             }
             foreach (Tranzactie tranzactie in tranzactieList)
             {
-                string item = (tranzactie.IdTranzactie) + " || VALOARE: " + tranzactie.Valoare.ToString();
+                string item = (tranzactie.IdTranzactie) + " || VALOARE: " + tranzactie.Valoare.ToString() + " " + tranzactie.Username;
                 if (!listBox1.Items.Contains(item))
                 {
                     listBox1.Items.Add(item);
@@ -72,7 +72,7 @@ namespace PAW_Proiect
             }
             foreach (Tranzactie tranzactie in tranzactieList)
             {
-                string item = (tranzactie.IdTranzactie) + " || VALOARE: " + tranzactie.Valoare.ToString();
+                string item = (tranzactie.IdTranzactie) + " || VALOARE: " + tranzactie.Valoare.ToString() + " " + tranzactie.Username;
                 if (!listBox1.Items.Contains(item))
                 {
                     listBox1.Items.Add(item);

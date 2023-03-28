@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-
+using System.Text.RegularExpressions;
 
 namespace PAW_Proiect
 {
@@ -29,7 +29,8 @@ namespace PAW_Proiect
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            string input = tbTelefon.Text;
+            string pattern = "^[0123456789]*$";
             if (tbNume.Text == "")
             {
                 tbNume.Focus();
@@ -45,25 +46,20 @@ namespace PAW_Proiect
                 tbTelefon.Focus();
                 errorProvider1.SetError(tbTelefon, "Introduceti numarul de telefon!");
             }
+            else if (!Regex.IsMatch(input, pattern) || input.Length != 9 || !input.Substring(0, 1).Equals("7"))
+            {
+                tbTelefon.Focus();
+                errorProvider1.SetError(tbTelefon, "Introduceti un numar de telefon valid!");
+            }
             else
             {
                 Client client = new Client();
                 client.Nume = tbNume.Text;
                 client.Email = tbEmail.Text;
-                client.Telefon = tbTelefon.Text;
+                client.Telefon = "0" + tbTelefon.Text;
                 newUserPassword user = new newUserPassword(this, client, lista);
                 user.ShowDialog(this);
             }
-        }
-
-        private void newUser_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbEmail_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

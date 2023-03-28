@@ -35,5 +35,11 @@ namespace PAW_Proiect
             IstoricTranzactii it = new IstoricTranzactii();
             it.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ConturiClienti form = new ConturiClienti();
+            form.ShowDialog();
+        }
     }
 }

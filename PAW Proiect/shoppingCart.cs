@@ -20,10 +20,12 @@ namespace PAW_Proiect
         string tranzactie = "";
         Tranzactie tr = new Tranzactie();
         PictureBox p;
-        public shoppingCart(Dictionary<Produs, int> achizitie)
+        string username;
+        public shoppingCart(Dictionary<Produs, int> achizitie, string username)
         {
             InitializeComponent();
             this.achizitieNoua = achizitie;
+            this.username = username;
            
             tranzactie += tr.generateID(5);
             tranzactie += " ";
@@ -49,6 +51,7 @@ namespace PAW_Proiect
                 label2.Text = "Produsele au fost achizitionate cu succes!";
                 tr.IdTranzactie = tranzactie;
                 tr.Valoare = total;
+                tr.Username = username;
                 List<Tranzactie> tranzactieList = new List<Tranzactie>();
 
                 FileStream fisier = new FileStream("tranzactii.dat", FileMode.Open, FileAccess.Read);
@@ -72,6 +75,11 @@ namespace PAW_Proiect
         }
 
         private void shoppingCart_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

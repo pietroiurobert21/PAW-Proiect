@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConturiClienti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConturiClienti.Designer.cs">
+      <DependentUpon>ConturiClienti.cs</DependentUpon>
+    </Compile>
     <Compile Include="customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     <Compile Include="UserType.Designer.cs">
       <DependentUpon>UserType.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConturiClienti.resx">
+      <DependentUpon>ConturiClienti.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="customer.resx">
       <DependentUpon>customer.cs</DependentUpon>
     </EmbeddedResource>

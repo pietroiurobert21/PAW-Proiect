@@ -42,7 +42,7 @@ namespace PAW_Proiect
         public override string ToString()
         {
             //return "Nume " + nume + " Email " + email + " Telefon " + telefon + " Parola " + password;
-            return "Username: " + username + " Parola " + password;
+            return "Username: " + username + " || Parola: " + password;
         }
         public string generateID(int length)
         {

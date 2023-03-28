@@ -39,8 +39,11 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.bRefresh = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -59,7 +62,6 @@
             this.tbParola.Name = "tbParola";
             this.tbParola.Size = new System.Drawing.Size(258, 30);
             this.tbParola.TabIndex = 12;
-            this.tbParola.TextChanged += new System.EventHandler(this.tbParola_TextChanged);
             // 
             // tbNume
             // 
@@ -67,7 +69,6 @@
             this.tbNume.Name = "tbNume";
             this.tbNume.Size = new System.Drawing.Size(258, 30);
             this.tbNume.TabIndex = 11;
-            this.tbNume.TextChanged += new System.EventHandler(this.tbNume_TextChanged);
             // 
             // label3
             // 
@@ -130,17 +131,16 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 29;
-            this.listBox1.Location = new System.Drawing.Point(673, 27);
+            this.listBox1.Location = new System.Drawing.Point(42, 48);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(559, 265);
             this.listBox1.TabIndex = 15;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // bRefresh
             // 
-            this.bRefresh.Location = new System.Drawing.Point(741, 345);
+            this.bRefresh.Location = new System.Drawing.Point(42, 387);
             this.bRefresh.Name = "bRefresh";
-            this.bRefresh.Size = new System.Drawing.Size(75, 23);
+            this.bRefresh.Size = new System.Drawing.Size(97, 39);
             this.bRefresh.TabIndex = 16;
             this.bRefresh.Text = "refresh";
             this.bRefresh.UseVisualStyleBackColor = true;
@@ -155,13 +155,39 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(37, 316);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(539, 75);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Acesasta functionalitate a fost introdusa strict pentru usurinta \r\nprezentarii pr" +
+    "oiectului. Lista conturilor active este vizibila \r\nsi in fereastra \"administrato" +
+    "r\".\r\n";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Info;
+            this.groupBox2.Controls.Add(this.listBox1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.bRefresh);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox2.Location = new System.Drawing.Point(723, 51);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(651, 432);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lista conturi active";
+            // 
             // UserType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1358, 450);
-            this.Controls.Add(this.bRefresh);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(1386, 562);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
@@ -171,6 +197,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +217,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button bRefresh;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

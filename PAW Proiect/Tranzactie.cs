@@ -11,6 +11,7 @@ namespace PAW_Proiect
     {
         private string idTranzactie;
         private double valoare;
+        private string username;
         //private List<Produs> listaProduse;
 
         public Tranzactie()
@@ -19,19 +20,21 @@ namespace PAW_Proiect
             valoare = 0.0;
         }
 
-        public Tranzactie(string numarTranzactie, double valoare)//, List<Produs> listaProduse)
+        public Tranzactie(string numarTranzactie, double valoare, string username)//, List<Produs> listaProduse)
         {
             this.idTranzactie = numarTranzactie;
             this.valoare = valoare;
-           // foreach(Produs produs in listaProduse)
-           // {
-           //     this.listaProduse.Add(produs);
-           //}
+            this.username = username;
+            // foreach(Produs produs in listaProduse)
+            // {
+            //     this.listaProduse.Add(produs);
+            //}
         }
 
         public string IdTranzactie { get => idTranzactie; set => idTranzactie = value; }
         public double Valoare { get => valoare; set => valoare = value; }
 
+        public string Username { get => username; set => username = value; }
         public object Clone()
         {
             Tranzactie clona = (Tranzactie)this.MemberwiseClone();
