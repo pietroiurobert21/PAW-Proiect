@@ -15,29 +15,20 @@ namespace PAW_Proiect
 {
     public partial class UserType : Form
     {
-        
+        List<Client> listaClienti = new List<Client>();
         public UserType()
         {
             InitializeComponent();
-            List<Client> listaClienti = new List<Client>();
-            Client client1 = new Client();
+            listBox1.Items.Clear();
 
-            FileStream fisier = new FileStream("clienti.dat", FileMode.Append, FileAccess.Write);
-            BinaryFormatter bf = new BinaryFormatter();
-
-            List<Client> lista = new List<Client>() { client1 };
-            bf.Serialize(fisier, lista);
-            fisier.Close();
+            FileStream fisier = new FileStream("clienti.dat", FileMode.Open, FileAccess.Read);
 
 
-
-
-            fisier = new FileStream("clienti.dat", FileMode.Open, FileAccess.Read);
-            BinaryFormatter formatter = new BinaryFormatter();
-            listaClienti = (List<Client>)formatter.Deserialize(fisier);
-            //client1 = (Client)formatter.Deserialize(fisier);
-            listaClienti.Add(client1);
-
+            if (fisier != null && fisier.Length > 0)
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                listaClienti = (List<Client>)formatter.Deserialize(fisier);
+            }
             foreach (Client client in listaClienti)
             {
                 listBox1.Items.Add(client);
@@ -45,36 +36,25 @@ namespace PAW_Proiect
             fisier.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             newUser newuser = new newUser();
             newuser.ShowDialog();
-        }
-
-        private void tbNume_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UserType_Load(object sender, EventArgs e)
-        {
-
+            bRefresh_Click(sender, e);
         }
 
         private void bRefresh_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            List<Client> listaClienti = new List<Client>();
-
             
             FileStream fisier = new FileStream("clienti.dat", FileMode.Open, FileAccess.Read);
-            BinaryFormatter formatter = new BinaryFormatter();
-            listaClienti = (List<Client>)formatter.Deserialize(fisier);
+
+
+            if (fisier != null && fisier.Length > 0)
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                listaClienti = (List<Client>)formatter.Deserialize(fisier);
+            }
             foreach (Client client in listaClienti)
             {
                 listBox1.Items.Add(client);
@@ -84,8 +64,24 @@ namespace PAW_Proiect
 
         private void button2_Click(object sender, EventArgs e)
         {
-            customer customer1 = new customer();
-            customer1.ShowDialog();
+            bool identityVerified = false;
+            foreach (Client client in listaClienti)
+            {
+                if (client.Nume == tbNume.Text)
+                   if (client.Password == tbParola.Text)
+                        identityVerified = true;
+            }
+            if (identityVerified == true)
+            {
+                customer customer1 = new customer(tbNume.Text);
+                customer1.ShowDialog();
+            }
+            else MessageBox.Show("Nu ati introdus bine numele sau parola!");
+        }
+
+        private void UserType_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

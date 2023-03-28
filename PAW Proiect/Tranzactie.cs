@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace PAW_Proiect
 {
     [Serializable]
-    internal class Tranzactie : ICloneable, IComparable, IDGenerator
+    public class Tranzactie : ICloneable, IComparable, IDGenerator
     {
         private string idTranzactie;
         private double valoare;
+        private string username;
         //private List<Produs> listaProduse;
 
         public Tranzactie()
@@ -19,19 +20,21 @@ namespace PAW_Proiect
             valoare = 0.0;
         }
 
-        public Tranzactie(string numarTranzactie, double valoare)//, List<Produs> listaProduse)
+        public Tranzactie(string numarTranzactie, double valoare, string username)//, List<Produs> listaProduse)
         {
             this.idTranzactie = numarTranzactie;
             this.valoare = valoare;
-           // foreach(Produs produs in listaProduse)
-           // {
-           //     this.listaProduse.Add(produs);
-           //}
+            this.username = username;
+            // foreach(Produs produs in listaProduse)
+            // {
+            //     this.listaProduse.Add(produs);
+            //}
         }
 
         public string IdTranzactie { get => idTranzactie; set => idTranzactie = value; }
         public double Valoare { get => valoare; set => valoare = value; }
 
+        public string Username { get => username; set => username = value; }
         public object Clone()
         {
             Tranzactie clona = (Tranzactie)this.MemberwiseClone();
@@ -61,9 +64,9 @@ namespace PAW_Proiect
             else return 0;
         }
 
-        public string generatePassword(int length)
+        public string generateID(int length)
         {
-            string password = "id";
+            string ID = "id";
             char x = 'A', y = 'a';
             List<char> upper = new List<char>();
             List<char> lower = new List<char>();
@@ -80,13 +83,11 @@ namespace PAW_Proiect
                 int randomIndex = rand.Next(upper.Count);
                 int use_digits = rand.Next(2); //0 - use digit, 1 - use letter
                 if (use_digits == 0)
-                    password += rand.Next(10);
+                    ID += rand.Next(10);
                 else
-                    password += upper[randomIndex];
+                    ID += upper[randomIndex];
             }
-            return password;
+            return ID;
         }
-
-
     }
 }

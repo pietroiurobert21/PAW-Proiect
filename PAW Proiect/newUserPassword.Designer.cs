@@ -34,10 +34,10 @@
             this.tbParola = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -63,9 +63,10 @@
             // 
             // tbParola
             // 
+            this.tbParola.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbParola.Location = new System.Drawing.Point(301, 215);
             this.tbParola.Name = "tbParola";
-            this.tbParola.Size = new System.Drawing.Size(258, 22);
+            this.tbParola.Size = new System.Drawing.Size(258, 28);
             this.tbParola.TabIndex = 12;
             // 
             // label2
@@ -88,6 +89,10 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Sa incepem!";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PAW_Proiect.Properties.Resources.Graphicloads_Flat_Finance_Person_64;
@@ -96,10 +101,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(68, 68);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // newUserPassword
             // 
@@ -115,8 +116,8 @@
             this.Name = "newUserPassword";
             this.Text = "newUserPassword";
             this.Load += new System.EventHandler(this.newUserPassword_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

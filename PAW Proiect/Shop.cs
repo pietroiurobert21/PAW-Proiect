@@ -23,6 +23,7 @@ namespace PAW_Proiect
             InitializeComponent();
             Produs produs1 = new Produs();
             
+
             FileStream fisier = new FileStream("produse.dat", FileMode.Open, FileAccess.Read);
             BinaryFormatter formatter = new BinaryFormatter();
             listaProduse = (List<Produs>)formatter.Deserialize(fisier);
@@ -36,10 +37,13 @@ namespace PAW_Proiect
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Produs selectedProduct = new Produs();
-            selectedProduct = listaProduse.ElementAt(ltProdus.SelectedIndex);
-            //selectedProduct = ltProdus.SelectedItem as Produs;
-            DetaliiProdusClient form = new DetaliiProdusClient(selectedProduct, achizitieNoua);
-            form.ShowDialog();
+            if (ltProdus.SelectedIndex >= 0 && ltProdus.SelectedIndex < ltProdus.Items.Count)
+            {
+                selectedProduct = listaProduse.ElementAt(ltProdus.SelectedIndex);
+                //selectedProduct = ltProdus.SelectedItem as Produs;
+                DetaliiProdusClient form = new DetaliiProdusClient(selectedProduct, achizitieNoua);
+                form.ShowDialog();
+            }
         }
 
         private void Shop_Load(object sender, EventArgs e)
