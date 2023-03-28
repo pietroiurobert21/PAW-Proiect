@@ -6,22 +6,35 @@ using System.Threading.Tasks;
 
 namespace PAW_Proiect
 {
-    internal class Tranzactie : ICloneable, IComparable
+    [Serializable]
+    public class Tranzactie : ICloneable, IComparable, IDGenerator
     {
-        private int numarTranzactie;
+        private string idTranzactie;
         private double valoare;
-        private List<Produs> listaProduse;
+        private string username;
+        //private List<Produs> listaProduse;
 
-        public Tranzactie(int numarTranzactie, double valoare, List<Produs> listaProduse)
+        public Tranzactie()
         {
-            this.numarTranzactie = numarTranzactie;
-            this.valoare = valoare;
-            foreach(Produs produs in listaProduse)
-            {
-                this.listaProduse.Add(produs);
-            }
+            idTranzactie = "";
+            valoare = 0.0;
         }
 
+        public Tranzactie(string numarTranzactie, double valoare, string username)//, List<Produs> listaProduse)
+        {
+            this.idTranzactie = numarTranzactie;
+            this.valoare = valoare;
+            this.username = username;
+            // foreach(Produs produs in listaProduse)
+            // {
+            //     this.listaProduse.Add(produs);
+            //}
+        }
+
+        public string IdTranzactie { get => idTranzactie; set => idTranzactie = value; }
+        public double Valoare { get => valoare; set => valoare = value; }
+
+        public string Username { get => username; set => username = value; }
         public object Clone()
         {
             Tranzactie clona = (Tranzactie)this.MemberwiseClone();
@@ -31,12 +44,12 @@ namespace PAW_Proiect
             // returneaza un obiect de tip Object
 
             // facem deep copy la membrii ce necesita asta:
-            List<Produs> listaProduse = new List<Produs>();
-            foreach(Produs produs in this.listaProduse)
-            {
-                listaProduse.Add(produs);
-            }
-            clona.listaProduse = listaProduse;
+            //List<Produs> listaProduse = new List<Produs>();
+            //foreach(Produs produs in this.listaProduse)
+            //{
+            //    listaProduse.Add(produs);
+            //}
+            //clona.listaProduse = listaProduse;
 
             return clona;
         }
@@ -51,14 +64,30 @@ namespace PAW_Proiect
             else return 0;
         }
 
-        public override string ToString()
+        public string generateID(int length)
         {
-            string output = "Numar Tranzactie: " + numarTranzactie + " Valoare: " + valoare;
-            foreach(var produs in this.listaProduse)
-            {
-                output += produs.ToString();
+            string ID = "id";
+            char x = 'A', y = 'a';
+            List<char> upper = new List<char>();
+            List<char> lower = new List<char>();
+
+            for (int i = 0; i < 25; i++)
+            { // 25 letters from the Alphabet
+                upper.Add((char)(x + i));
+                lower.Add((char)(y + i));
             }
-            return output;
+            Random rand = new Random();
+
+            for (int i = 0; i < length; i++)
+            {
+                int randomIndex = rand.Next(upper.Count);
+                int use_digits = rand.Next(2); //0 - use digit, 1 - use letter
+                if (use_digits == 0)
+                    ID += rand.Next(10);
+                else
+                    ID += upper[randomIndex];
+            }
+            return ID;
         }
     }
 }

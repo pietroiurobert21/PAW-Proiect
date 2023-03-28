@@ -13,10 +13,17 @@ namespace PAW_Proiect
     public partial class customer : Form
     {
         Dictionary<Produs, int> achizitie = new Dictionary<Produs, int>();
-        int sumaProduse = 0;
-        public customer()
+        bool purchase = false;
+        string username;
+        public customer(string username)
         {
             InitializeComponent();
+            this.username = username;
+            label2.Text =  "Bun venit, " + username;
+            if (purchase == true)
+                label4.Text = "🔴";
+            else
+                label4.Text = "";
             //if (sumaProduse == 0)
             //   label3.Text = "Nu aveti produse in cos!";
             //else
@@ -27,6 +34,10 @@ namespace PAW_Proiect
         {
             Shop form2 = new Shop(achizitie);
             form2.ShowDialog();
+            if (purchase == true)
+                label4.Text = "🔴";
+            else
+                label4.Text = "";
         }
 
         private void customer_Load(object sender, EventArgs e)
@@ -40,6 +51,12 @@ namespace PAW_Proiect
             //foreach (KeyValuePair<Produs, int> item in achizitie)
             //    sumaProduse += item.Value;
             //MessageBox.Show(sumaProduse.ToString());
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            shoppingCart form = new shoppingCart(achizitie, username);
+            form.ShowDialog();
         }
     }
 }

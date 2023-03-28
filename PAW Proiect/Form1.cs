@@ -21,7 +21,8 @@ namespace PAW_Proiect
             InitializeComponent();
             FileStream fisier = new FileStream("produse.dat", FileMode.Open, FileAccess.Read);
             BinaryFormatter formatter = new BinaryFormatter();
-            listaProduse = (List<Produs>)formatter.Deserialize(fisier);
+            if (fisier != null && fisier.Length > 0)
+                listaProduse = (List<Produs>)formatter.Deserialize(fisier);
             foreach(Produs produs in listaProduse)
             {
                 ltProdus.Items.Add(produs);
@@ -44,19 +45,26 @@ namespace PAW_Proiect
                 {
                     string denumire = tbDenumire.Text;
                     double pret = Convert.ToDouble(tbPret.Text);
-                    Produs produsNou = new Produs(denumire, pret);
-                    labelAdd.Text = "Produs adaugat cu succes!";
-                    //ltProdus.Items.Add(produsNou.ToString());
-                    ltProdus.Items.Add(produsNou.DenumireProdus);
+                    if (pret < 0)
+                    {
+                        MessageBox.Show("Pretul nu poate fi negativ!");
+                    }
+                    else
+                    {
+                        Produs produsNou = new Produs(denumire, pret);
+                        labelAdd.Text = "Produs adaugat cu succes!";
+                        //ltProdus.Items.Add(produsNou.ToString());
+                        ltProdus.Items.Add(produsNou.DenumireProdus);
 
-                    listaProduse.Add(produsNou);
+                        listaProduse.Add(produsNou);
 
-                    //List<Produs> listaNoua = new List<Produs>();
+                        //List<Produs> listaNoua = new List<Produs>();
 
-                    FileStream fisier = new FileStream("produse.dat", FileMode.Create, FileAccess.Write);
-                    BinaryFormatter bf = new BinaryFormatter();
-                    bf.Serialize(fisier, listaProduse);
-                    fisier.Close();
+                        FileStream fisier = new FileStream("produse.dat", FileMode.Create, FileAccess.Write);
+                        BinaryFormatter bf = new BinaryFormatter();
+                        bf.Serialize(fisier, listaProduse);
+                        fisier.Close();
+                    }
                 }
 
                 catch (Exception ex)
@@ -94,10 +102,28 @@ namespace PAW_Proiect
         private void ltProdus_SelectedIndexChanged(object sender, EventArgs e)
         {
             Produs selectedProduct = new Produs();
-            selectedProduct = listaProduse.ElementAt( ltProdus.SelectedIndex );
-            //selectedProduct = ltProdus.SelectedItem as Produs;
-            DetaliiProdusAdmin form = new DetaliiProdusAdmin(selectedProduct);
-            form.ShowDialog();
+            if (ltProdus.SelectedIndex >= 0 && ltProdus.SelectedIndex < ltProdus.Items.Count)
+            {
+                selectedProduct = listaProduse.ElementAt(ltProdus.SelectedIndex);
+                //selectedProduct = ltProdus.SelectedItem as Produs;
+                DetaliiProdusAdmin form = new DetaliiProdusAdmin(selectedProduct, listaProduse, ltProdus.SelectedIndex);
+                form.ShowDialog();
+                button1_Click(sender, e);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ltProdus.Items.Clear();
+            FileStream fisier = new FileStream("produse.dat", FileMode.Open, FileAccess.Read);
+            BinaryFormatter formatter = new BinaryFormatter();
+            if (fisier != null && fisier.Length > 0)
+                listaProduse = (List<Produs>)formatter.Deserialize(fisier);
+            foreach (Produs produs in listaProduse)
+            {
+                ltProdus.Items.Add(produs);
+            }
+            fisier.Close();
         }
     }
 }
